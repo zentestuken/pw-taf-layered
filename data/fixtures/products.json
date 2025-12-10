@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "prod_001",
+      "name": "Skater Black Sweatshirt",
+      "price": "25.90",
+      "sizes": ["S", "M", "L", "XL"],
+      "category": "Sweatshirts"
+    },
+    {
+      "id": "prod_002",
+      "name": "Black Batman T-shirt",
+      "price": "10.90",
+      "sizes": ["XS", "S", "M"],
+      "category": "T-Shirts"
+    }
+  ],
+  "shopPage": {
+    "title": "Typescript React Shopping cart",
+    "defaultProductsCount": 16
+  }
+}
