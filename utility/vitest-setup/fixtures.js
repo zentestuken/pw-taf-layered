@@ -1,12 +1,12 @@
 import { beforeEach, afterEach, afterAll } from 'vitest';
 import { chromium } from '@playwright/test';
-import ShopPage from '../po/pages/shop.page';
-import { ShopWorkflows } from '../workflows/shop.workflows';
-import { CartWorkflows } from '../workflows/cart.workflows';
-import { DialogWorkflows } from '../workflows/dialog.workflows';
-import { ShopAssertions } from '../assertions/shop.assertions';
-import { CartAssertions } from '../assertions/cart.assertions';
-import TestData from '../data/testData';
+import ShopPage from '../../business/po/pages/shop.page';
+import { ShopWorkflows } from '../../business/workflows/shop.workflows';
+import { CartWorkflows } from '../../business/workflows/cart.workflows';
+import { DialogWorkflows } from '../../business/workflows/dialog.workflows';
+import { ShopAssertions } from '../../presentation/assertions/shop.assertions';
+import { CartAssertions } from '../../presentation/assertions/cart.assertions';
+import TestData from '../../data-access/testData';
 import { baseUrl } from './global-setup';
 
 let browser;
@@ -22,16 +22,13 @@ export const createTestContext = () => {
     testContext.page = await browser.newPage();
     testContext.shopPage = new ShopPage(testContext.page, baseUrl);
 
-    // Business layer
     testContext.shopWorkflows = new ShopWorkflows(testContext.shopPage);
     testContext.dialogWorkflows = new DialogWorkflows(testContext.shopPage.page);
     testContext.cartWorkflows = new CartWorkflows(testContext.shopPage, testContext.dialogWorkflows);
 
-    // Assertion layer
     testContext.shopAssertions = new ShopAssertions(testContext.shopPage);
     testContext.cartAssertions = new CartAssertions(testContext.shopPage.cart);
 
-    // Data layer
     testContext.testData = TestData;
   });
 
@@ -44,7 +41,6 @@ export const createTestContext = () => {
   return testContext;
 };
 
-// Global browser cleanup
 afterAll(async () => {
   if (browser) {
     await browser.close();

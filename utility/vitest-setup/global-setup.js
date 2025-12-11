@@ -12,7 +12,7 @@ let serverProcess;
 export const baseUrl ='http://localhost:3000';
 
 export default async function globalSetup() {
-  const appPath = path.resolve(__dirname, '../app');
+  const appPath = path.resolve(__dirname, '../../app');
 
   console.log('Checking if the server is already running...');
 

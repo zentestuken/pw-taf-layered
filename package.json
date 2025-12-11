@@ -6,9 +6,9 @@
   "scripts": {
     "install-browser": "playwright install chromium",
     "lint": "eslint .",
-    "lint-fix": "eslint . --fix",
+    "lint-fix": "eslint -c utility/eslint.config.mjs . --fix",
     "pretest": "npm run lint-fix",
-    "test": "cross-env THREADS=2 vitest run",
+    "test": "cross-env THREADS=2 vitest run --config utility/vitest.config.js",
     "generate-report": "allure generate artifacts/allure-results --clean -o artifacts/allure-report",
     "get-report": "npm run generate-report && allure open artifacts/allure-report"
   },

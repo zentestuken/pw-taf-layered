@@ -4,14 +4,14 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const setupDir = path.resolve(__dirname, './vitest-setup');
+const projectRoot = path.resolve(__dirname, '..');
 
 export default defineConfig({
   test: {
     globals: true,
-    include: ['tests/**/*.spec.js'],
-    // setupFiles: path.resolve(setupDir, 'setup.js'),
-    globalSetup: path.resolve(setupDir, 'global-setup.js'),
+    include: [path.resolve(projectRoot, 'presentation/tests/**/*.spec.js').replace(/\\/g, '/')],
+    globalSetup: path.resolve(projectRoot, 'utility/vitest-setup/global-setup.js'),
+    setupFiles: ['allure-vitest/setup'],
     testTimeout: 30000,
     threads: parseInt(process.env.THREADS || '1', 10),
     teardownTimeout: 20000,
@@ -20,7 +20,7 @@ export default defineConfig({
       [
         "allure-vitest/reporter",
         {
-          resultsDir: path.resolve(__dirname, './artifacts/allure-results'),
+          resultsDir: path.resolve(projectRoot, 'artifacts/allure-results'),
         },
       ],
     ],

@@ -10,13 +10,9 @@ export default defineConfig([
     files: ["**/*.{js,mjs,ts}"],
       ignores: [
         '**/node_modules/**',
-        '**/test-results/**',
-        '**/playwright-report/**',
-        '**/playwright/.cache/**',
         '**/artifacts/**',
         '**/eslint.config.mjs',
-        '**/playwright.config.js',
-        './app/**',
+        '**/app/**',
     ],
     plugins: {
       js,

@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { formatPrice } from '../utils/helpers';
+import { formatPrice } from '../../utility/utils/helpers';
 
 export class DialogWorkflows {
   constructor(page) {

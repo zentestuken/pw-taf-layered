@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { getPriceLabelForPrices, calculateSubtotal } from '../utils/helpers';
+import { getPriceLabelForPrices, calculateSubtotal } from '../../utility/utils/helpers';
 
 export class CartWorkflows {
   constructor(shopPage, dialogWorkflows) {

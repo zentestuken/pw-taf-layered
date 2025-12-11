@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { getPriceLabelForPrices } from '../utils/helpers';
+import { getPriceLabelForPrices } from '../../utility/utils/helpers';
 
 export class CartAssertions {
   constructor(cart) {
