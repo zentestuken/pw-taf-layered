@@ -1,18 +1,12 @@
-import { createTestContext } from '../../utility/vitest-setup/fixtures';
+import { test } from '../../utility/fixtures';
 
-const context = createTestContext();
-
-test('Verify default product cards count', async () => {
-  const { shopWorkflows, shopAssertions, testData } = context;
-  
+test('Verify default product cards count', async ({ shopWorkflows, shopAssertions, testData }) => {
   await shopWorkflows.openShopAndVerifyLoaded();
   await shopAssertions.verifyPageTitle(testData.shopPageTitle);
   await shopAssertions.verifyProductCardsCount(testData.defaultProductsCount);
 });
 
-test('Product can be added to cart', async () => {
-  const { shopWorkflows, cartWorkflows, cartAssertions, testData } = context;
-  
+test('Product can be added to cart', async ({ shopWorkflows, cartWorkflows, cartAssertions, testData }) => {
   const product = testData.getProduct(0);
   
   await shopWorkflows.openShopAndVerifyLoaded();

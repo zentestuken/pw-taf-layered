@@ -2,7 +2,6 @@ import js from "@eslint/js";
 import globals from "globals";
 import { defineConfig } from "eslint/config";
 import playwright from 'eslint-plugin-playwright';
-import vitest from 'eslint-plugin-vitest';
 
 export default defineConfig([
   {
@@ -17,11 +16,11 @@ export default defineConfig([
     plugins: {
       js,
       playwright,
-      vitest,
     },
     languageOptions: {
       globals: {
         ...globals.browser,
+        ...globals.node,
         browser: true,
         context: true,
         page: true,

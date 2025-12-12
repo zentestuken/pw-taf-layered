@@ -1,10 +1,6 @@
-import { createTestContext } from '../../utility/vitest-setup/fixtures';
+import { test } from '../../utility/fixtures';
 
-const context = createTestContext();
-
-test('Subtotal calculated correctly when products added to cart', async () => {
-  const { shopWorkflows, cartWorkflows, cartAssertions, testData } = context;
-  
+test('Subtotal calculated correctly when products added to cart', async ({ shopWorkflows, cartWorkflows, cartAssertions, testData }) => {
   const products = testData.getProducts([0, 1]);
   
   await shopWorkflows.openShopAndVerifyLoaded();
@@ -17,8 +13,7 @@ test('Subtotal calculated correctly when products added to cart', async () => {
   await cartAssertions.verifySubtotal(products);
 });
 
-test('Verify checkout alert with one product', async () => {
-  const { shopWorkflows, cartWorkflows, testData } = context;
+test('Verify checkout alert with one product', async ({ shopWorkflows, cartWorkflows, testData }) => {
   
   const product = testData.getProduct(0);
   
