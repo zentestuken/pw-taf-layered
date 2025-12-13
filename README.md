@@ -4,8 +4,9 @@ For simplicity, app under test is included in the repo (original - see https://g
 
 #### Branches:
 
-- `main` - with Vitest test runner
+- `vitest` - with Vitest test runner
 - `pw-runner` - with Playwright test runner
+- `typescript` - with Playwright test runner, full TS integration, more consistent layering 
 
 #### Layers:
 

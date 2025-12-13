@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["ES2022", "DOM"],
+    "moduleResolution": "node",
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "types": ["node", "@playwright/test"],
+    "baseUrl": ".",
+    "paths": {
+      "@business/*": ["business/*"],
+      "@presentation/*": ["presentation/*"],
+      "@data/*": ["data-access/*"],
+      "@utility/*": ["utility/*"],
+      "@types/*": ["types/*"]
+    }
+  },
+  "include": [
+    "business/**/*",
+    "presentation/**/*",
+    "data-access/**/*",
+    "utility/**/*",
+    "types/**/*"
+  ],
+  "exclude": ["node_modules", "dist", "artifacts"]
+}

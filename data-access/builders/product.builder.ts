@@ -1,4 +1,8 @@
+import { Product, ProductData } from '../../types/models/product.types';
+
 export class ProductBuilder {
+  private product: Product;
+
   constructor() {
     this.product = {
       name: '',
@@ -8,31 +12,31 @@ export class ProductBuilder {
     };
   }
 
-  withName(name) {
+  withName(name: string): this {
     this.product.name = name;
     return this;
   }
 
-  withPrice(price) {
+  withPrice(price: number | string): this {
     this.product.price = typeof price === 'number' ? price.toFixed(2) : price;
     return this;
   }
 
-  withSize(size) {
+  withSize(size: string): this {
     this.product.size = size;
     return this;
   }
 
-  withCategory(category) {
+  withCategory(category: string): this {
     this.product.category = category;
     return this;
   }
 
-  build() {
+  build(): Product {
     return { ...this.product };
   }
 
-  static fromTestData(productData) {
+  static fromTestData(productData: ProductData): Product {
     return new ProductBuilder()
       .withName(productData.name)
       .withPrice(productData.price)

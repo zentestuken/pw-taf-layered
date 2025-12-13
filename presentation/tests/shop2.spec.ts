@@ -1,13 +1,13 @@
 import { test } from '../../utility/fixtures';
 
-test('Subtotal calculated correctly when products added to cart', async ({ shopWorkflows, cartWorkflows, cartAssertions, testData }) => {
+test('Subtotal calculated correctly when products added to cart', async ({ shopWorkflows, cartAssertions, shopPage, testData }) => {
   const products = testData.getProducts([0, 1]);
   
   await shopWorkflows.openShopAndVerifyLoaded();
   await shopWorkflows.addMultipleProductsToCart(products);
   
   await cartAssertions.verifyCartVisible();
-  await cartWorkflows.verifyProductsInCart(products);
+  await cartAssertions.verifyProductsInCart(products, shopPage);
   await cartAssertions.verifyProductCount(2);
   await cartAssertions.verifyCounter(2);
   await cartAssertions.verifySubtotal(products);

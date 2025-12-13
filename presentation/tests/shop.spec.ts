@@ -6,11 +6,12 @@ test('Verify default product cards count', async ({ shopWorkflows, shopAssertion
   await shopAssertions.verifyProductCardsCount(testData.defaultProductsCount);
 });
 
-test('Product can be added to cart', async ({ shopWorkflows, cartWorkflows, cartAssertions, testData }) => {
+test('Product can be added to cart', async ({ shopWorkflows, cartWorkflows, cartAssertions, shopPage, testData }) => {
   const product = testData.getProduct(0);
   
   await shopWorkflows.openShopAndVerifyLoaded();
   await shopWorkflows.addProductToCartAndVerify(product);
   await cartAssertions.verifyCounter(1);
-  await cartWorkflows.closeCartAndVerifyCounterPersists(1);
+  await cartWorkflows.closeCart();
+  await cartAssertions.verifyHeaderCounter(1, shopPage);
 });

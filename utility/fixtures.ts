@@ -6,10 +6,11 @@ import { DialogWorkflows } from '../business/workflows/dialog.workflows';
 import { ShopAssertions } from '../presentation/assertions/shop.assertions';
 import { CartAssertions } from '../presentation/assertions/cart.assertions';
 import TestData from '../data-access/testData';
+import { TestFixtures } from '../types/fixtures.types';
 
-export const test = base.extend({
+export const test = base.extend<TestFixtures>({
   shopPage: async ({ page, baseURL }, use) => {
-    const shopPage = new ShopPage(page, baseURL);
+    const shopPage = new ShopPage(page, baseURL as string);
     await use(shopPage);
   },
 
@@ -34,7 +35,6 @@ export const test = base.extend({
     await use(new CartAssertions(shopPage.cart));
   },
 
-  // eslint-disable-next-line no-empty-pattern
   testData: async ({}, use) => {
     await use(TestData);
   },
