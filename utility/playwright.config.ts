@@ -1,4 +1,3 @@
-// utility/playwright.config.ts
 import { defineConfig } from '@playwright/test';
 import path from 'path';
 
