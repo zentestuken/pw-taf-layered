@@ -1,4 +1,3 @@
-// data-access/testData.ts
 import { ProductRepository } from './repositories/product.repository';
 import shopConfig from './fixtures/products.json';
 import { Product, ShopConfig } from '../types/models/product.types';
