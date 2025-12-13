@@ -1,7 +1,7 @@
 {
   "name": "playwright_taf_runners",
   "version": "1.0.0",
-  "description": "Playwright TAF for a Shopping cart app (with PW runner and proper layers)",
+  "description": "Playwright TAF for a Shopping cart app (with PW runner, Typescript and proper layers)",
   "main": "index.js",
   "scripts": {
     "install-browser": "playwright install chromium",
@@ -22,7 +22,8 @@
     "playwright",
     "Node.js",
     "test",
-    "automation"
+    "automation",
+    "typescript"
   ],
   "author": "Yauhen Viazau",
   "license": "ISC",
